@@ -26,7 +26,7 @@ function hideCards(){
 
 function getCards(){
     if(localStorage.getItem('cards') && localStorage.getItem("cards") != "[]"){
-      return JSON.parsel(localStorage.getItem("cards"))
+      return JSON.parse(localStorage.getItem('cards'))
     }else {
         return initial_cards
     }
@@ -35,9 +35,9 @@ function getCards(){
 function addNewCard(event){
     event.preventDefault()
 
-    let t = document.querySelector("#place").value
-    let d = document.querySelector("#description").value
-    let p = document.querySelector("#poster").value
+    let t = document.querySelector("#place").value;
+    let d = document.querySelector("#description").value;
+    let p = document.querySelector("#poster").value;
 
     let cards = getCards()
     if(t && d && p){
@@ -94,4 +94,5 @@ function displayCards (){
 document.querySelector("#myForm").onsubmit = addNewCard
 document.querySelector("#new_card").onclick = hideCards
 document.querySelector(".to-cancel").onclick = hideForm
+
 displayCards ()
